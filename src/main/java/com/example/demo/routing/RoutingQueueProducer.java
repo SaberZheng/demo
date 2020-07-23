@@ -14,11 +14,6 @@ import static com.rabbitmq.client.BuiltinExchangeType.DIRECT;
  * @date 2020/7/19 19:34
  */
 public class RoutingQueueProducer {
-
-    private static final String QUEUE1_NAME = "test.routing.queue1";
-
-    private static final String QUEUE2_NAME = "test.routing.queue2";
-
     private static final String EXCHANGE_NAME = "test.routing.exchange";
 
     private static final String ROUTING1_KEY = "test.routing1";
@@ -29,10 +24,6 @@ public class RoutingQueueProducer {
         Connection connection = ConnectionUtils.getConnection();
         Channel channel = connection.createChannel();
         channel.exchangeDeclare(EXCHANGE_NAME, DIRECT);
-        channel.queueDeclare(QUEUE1_NAME, true, false, false, null);
-        channel.queueDeclare(QUEUE2_NAME, true, false, false, null);
-        channel.queueBind(QUEUE1_NAME, EXCHANGE_NAME, ROUTING1_KEY);
-        channel.queueBind(QUEUE2_NAME, EXCHANGE_NAME, ROUTING2_KEY);
         String s1 = "1 hello world";
         System.out.println("send msg：" + s1);
         channel.basicPublish(EXCHANGE_NAME, ROUTING1_KEY, null, s1.getBytes());
