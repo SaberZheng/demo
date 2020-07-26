@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
  * @author Amy
  * @date 2020/7/19 19:34
  */
-public class WorkQueueProducer {
+public class SimpleQueueProducer {
 
     private static final String QUEUE_NAME = "test.simple.queue";
 
