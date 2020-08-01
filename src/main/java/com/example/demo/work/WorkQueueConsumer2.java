@@ -24,7 +24,7 @@ public class WorkQueueConsumer2 {
             public void handleDelivery(String consumerTag, Envelope envelope,
                                        AMQP.BasicProperties properties, byte[] body) {
                 String message = new String(body);
-                System.out.println("[1]---receive msg：" + message);
+                System.out.println("[2]----receive msg：" + message);
             }
         };
         channel.basicConsume(QUEUE_NAME, true, consumer);

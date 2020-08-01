@@ -23,7 +23,7 @@ public class WorkQueueConsumer1 {
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody());
-            System.out.println("[1]---receive msg：" + message);
+            System.out.println("[1]----receive msg：" + message);
         };
         channel.basicConsume(QUEUE_NAME, true, deliverCallback, consumerTag -> {
         });

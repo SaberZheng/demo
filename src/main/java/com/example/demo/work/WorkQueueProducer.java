@@ -19,7 +19,7 @@ public class WorkQueueProducer {
         Connection connection = ConnectionUtils.getConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             String s = String.format("%d hello world", i);
             System.out.println("send msg：" + s);
             channel.basicPublish("", QUEUE_NAME, null, s.getBytes());
